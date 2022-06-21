@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filhos</title>
+</head>
+<body>
+    <script>
+        
+
+        function mostra(frase) {
+            document.write(frase)
+            pulaLinha()
+        }
+        
+        function pulaLinha() {
+            document.write("<br>")
+        }
+        var anoAtual = 2021
+        var anoDeDescobrimento = 1500
+        mostra("Desde 1500 se passaram " + (anoAtual - anoDeDescobrimento) + " anos")
+        mostra("a quantidade de gerações que se teve até hoje foi de " + Math.round((anoAtual - anoDeDescobrimento)/28) + "!")
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>triangulo</title>
+    <canvas width="600px" height="400px"></canvas>
+  </head>
+  <body>
+    <script>
+      var tela = document.querySelector("canvas");
+      var pincel = tela.getContext("2d");
+
+      function desenhaEsquadro(xa, ya, xc, yc, cor) {
+
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.moveTo(xa, ya);
+        pincel.lineTo(xa, yc);
+        pincel.lineTo(xc, yc);
+        pincel.fill();
+
+      }
+
+      desenhaEsquadro(50, 50, 400, 400, 'black')
+      desenhaEsquadro(100, 175, 275, 350, 'white')
+    </script>
+  </body>
+</html>
