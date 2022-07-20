@@ -24,8 +24,8 @@ def play():
         print("The number that you typed is not in the difficulties. Choosing the hard difficulty.")
 
     for attempt in range (1, total_attempts + 1):
-        print(f"attempt {attempt} of {total_attempts}")
-        guess_str = input("type a number between 1 and 100: ")
+        print(f"Attempt {attempt} of {total_attempts}")
+        guess_str = input("Type a number between 1 and 100: ")
         print("You typed", guess_str)
         guess = int(guess_str)
 
@@ -38,17 +38,17 @@ def play():
         less   = guess < secret_number
 
         if (right):
-            print("You guessed right and did {} points!".format(points))
+            print("You guessed right and scored {} points!".format(points))
             break
         else:
             if (bigger):
                 print("You guessed wrong! Your guess was bigger than the secret number!") 
                 if (attempt == total_attempts):
-                    print("The secret number was {}. You did {} points.".format(secret_number, points))
+                    print("The secret number was {}. You scored {} points.".format(secret_number, points))
             elif (less):
                 print("You guessed wrong! Your guess was less than the secret number!")
                 if (attempt == total_attempts):
-                    print("The secret number was {}. You did {} points.".format(secret_number, points))
+                    print("The secret number was {}. You scored {} points.".format(secret_number, points))
             lost_points = abs(secret_number - guess) * 2
             points = points - lost_points    
 
