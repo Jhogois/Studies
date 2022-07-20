@@ -50,9 +50,15 @@ def play():
                 if (attempt == total_attempts):
                     print("The secret number was {}. You did {} points.".format(secret_number, points))
             lost_points = abs(secret_number - guess) * 2
-            points = points - lost_points
+            points = points - lost_points    
 
-    print('Game over')
+    print("Do you want to play again?")
+    print("(1) Yes (2) No ")
+    answer = int(input(""))
 
+    if (answer == 1):
+        play()
+    else:
+        print('Game over')
 if (__name__ == "__main__"):
     play()
