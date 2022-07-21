@@ -39,7 +39,7 @@ def presentation():
     print("****************************")
 
 def load_secret_word():
-    archive = open(r"C:\Users\jhogo\OneDrive\Documentos\Estudos\Alura\python\words.txt", "r")
+    archive = open(r"C:\Users\jhogo\OneDrive\Documentos\Estudos\Alura\python\words.txt", "r")#Here, use your diretory
     words = []
 
     for line in archive:
