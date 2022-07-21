@@ -1,21 +1,10 @@
+import random
+
 def play():
-    print("****************************")
-    print("Welcome to the hangman game!")
-    print("****************************")
-
-    archive = open("words.txt", "r")
-    words = []
-
-    for line in archive:
-        line = line.strip()
-        words.append(line)
-
-    archive.close()
-
-    print(words)
-
-    secret_word = "banana".upper()
-    right_letters = ["_" for letter in secret_word]
+    
+    presentation()
+    secret_word = load_secret_word()
+    right_letters = initialize_right_letters(secret_word)
 
     hanged = False
     right = False
@@ -23,15 +12,11 @@ def play():
 
     print(right_letters)
     while (not hanged and not right):
-        guess = input("Wich letter? ")
-        guess = guess.strip().upper()
+        
+        guess = ask_guess()
 
         if (guess in secret_word):
-            index = 0
-            for letter in secret_word:
-                if (guess == letter):
-                    right_letters[index] = letter
-                index += 1
+            mark_right_guess(guess, right_letters, secret_word)
             
         else:
             errors -= 1
@@ -42,10 +27,53 @@ def play():
         print(right_letters)
 
     if (right):
-        print("Congratulations! You guessed the right word!")
+        show_winning_message()
     else:
-        print(f"You lost. The secret word was {secret_word}.")
+        show_losing_message(secret_word)
     
+    play_again_message()
+
+def presentation():
+    print("****************************")
+    print("Welcome to the hangman game!")
+    print("****************************")
+
+def load_secret_word():
+    archive = open(r"C:\Users\wemont\Documents\Estudos\Alura\python\words.txt", "r")
+    words = []
+
+    for line in archive:
+        line = line.strip()
+        words.append(line)
+
+    archive.close()
+
+    number = random.randrange(0,len(words))
+    secret_word = words[number].upper()
+    return secret_word
+
+def initialize_right_letters(word):
+    return ["_" for letter in word]
+
+def ask_guess():
+    guess = input("Wich letter? ")
+    guess = guess.strip().upper()
+    return guess
+
+def mark_right_guess(guess, right_letters, secret_word):
+    index = 0
+    for letter in secret_word:
+        if (guess == letter):
+            right_letters[index] = letter
+        index += 1
+
+def show_winning_message():
+    print("Congratulations! You guessed the right word!")
+
+def show_losing_message(secret_word):
+    print(f"You lost. The secret word was {secret_word}.")
+
+def play_again_message():
     print("Do you want to play again?")
     print("(1) Yes (2) No ")
     answer = int(input(""))
