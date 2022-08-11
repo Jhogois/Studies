@@ -8,7 +8,7 @@ def play():
 
     hanged = False
     right = False
-    errors = 6
+    errors = 7
 
     print(right_letters)
     while (not hanged and not right):
@@ -20,6 +20,7 @@ def play():
             
         else:
             errors -= 1
+            draw_hangman(errors)
             print(f"That letter don't exist in this word. You have left {errors} tries.")
 
         hanged = errors == 0
@@ -69,9 +70,35 @@ def mark_right_guess(guess, right_letters, secret_word):
 
 def show_winning_message():
     print("Congratulations! You guessed the right word!")
+    print("       ___________      ")
+    print("      '._==_==_=_.'     ")
+    print("      .-\\:      /-.    ")
+    print("     | (|:.     |) |    ")
+    print("      '-|:.     |-'     ")
+    print("        \\::.    /      ")
+    print("         '::. .'        ")
+    print("           ) (          ")
+    print("         _.' '._        ")
+    print("        '-------'       ")
 
 def show_losing_message(secret_word):
     print(f"You lost. The secret word was {secret_word}.")
+    print("    _______________         ")
+    print("   /               \       ")
+    print("  /                 \      ")
+    print("//                   \/\  ")
+    print("\|   XXXX     XXXX   | /   ")
+    print(" |   XXXX     XXXX   |/     ")
+    print(" |   XXX       XXX   |      ")
+    print(" |                   |      ")
+    print(" \__      XXX      __/     ")
+    print("   |\     XXX     /|       ")
+    print("   | |           | |        ")
+    print("   | I I I I I I I |        ")
+    print("   |  I I I I I I  |        ")
+    print("   \_             _/       ")
+    print("     \_         _/         ")
+    print("       \_______/           ")
 
 def play_again_message():
     print("Do you want to play again?")
@@ -82,6 +109,56 @@ def play_again_message():
         play()
     else:
         print('Game over')
+
+def draw_hangman(errors):
+    print("  _______     ")
+    print(" |/      |    ")
+
+    if(errors == 6):
+        print(" |      (_)   ")
+        print(" |            ")
+        print(" |            ")
+        print(" |            ")
+
+    if(errors == 5):
+        print(" |      (_)   ")
+        print(" |      \     ")
+        print(" |            ")
+        print(" |            ")
+
+    if(errors == 4):
+        print(" |      (_)   ")
+        print(" |      \|    ")
+        print(" |            ")
+        print(" |            ")
+
+    if(errors == 3):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |            ")
+        print(" |            ")
+
+    if(errors == 2):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |            ")
+
+    if(errors == 1):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      /     ")
+
+    if (errors == 0):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      / \   ")
+
+    print(" |            ")
+    print("_|___         ")
+    print()
 
 if (__name__ == "__main__"):
     play()
