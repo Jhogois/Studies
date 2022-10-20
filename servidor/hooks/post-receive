@@ -1,3 +1,0 @@
-#!/bin/sh
-
-git checkout--git-dir="C:\Users\Wemont\Documents\Estudos\Alura\git-e-github\servidor" --work-tree="C:\Users\Wemont\Documents\Estudo\Alura\git-e-github\web"
